@@ -39,7 +39,7 @@ public:
 	int ConvertToSecond(){
 		return this->hour * MS_MAX * MS_MAX+this->minute * MS_MAX+this->second;
 	}
-	//Вычисление разницы
+	
 	Time GetDiff(Time t2){
 		int h,m,s;
 
