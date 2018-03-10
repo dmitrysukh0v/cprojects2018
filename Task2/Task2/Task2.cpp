@@ -1,4 +1,4 @@
-// Task2.cpp: главный файл проекта.
+// Task2.cpp
 
 #include "stdafx.h"
 #include <iostream>
@@ -7,8 +7,8 @@
 using namespace std;
 
 void PrintToBinary(int val){
-	bool bits[32];	//массив для битов
-	//проверка на отрицательность
+	bool bits[32];	//array for bits
+	//checking for a negative value
 	if(val>=0){
 		bits[0]=0;
 	}
@@ -30,14 +30,13 @@ void PrintToBinary(int val){
 
 int main()
 {
-	setlocale(LC_ALL,"Russian");
 	
 	int valinteger;
 
-	cout<<"Введите число: ";
+	cout<<"Input number: ";
 	cin>>valinteger;
 
-	cout<<"Вы ввели: "<<valinteger<<". В двоичном представлении С: ";
+	cout<<"You input: "<<valinteger<<". in the binary representation C: ";
 	PrintToBinary(valinteger);
 
 	cout<<endl;

@@ -10,7 +10,7 @@
 
 using namespace std;
 
-//взятие модуля
+//taking the abs
 int mod(int n){
 	return (n>=0) ? n : -n;
 }
@@ -28,7 +28,7 @@ public:
 				throw 0;
 		}
 		catch(int err){
-			cout<<"Некорректный параметр!"<<endl;
+			cout<<"Uncorrect parameter!"<<endl;
 			system("pause");
 			exit(0);
 		}
@@ -58,7 +58,7 @@ public:
 
 		return Time(mod(h),mod(m),mod(s));
 	}
-	//вернуть строковое представление времени
+	//getting a string representation of time
 	string GetStr(){
 		string res;
 		if(hour<10)
@@ -82,7 +82,6 @@ void CharTimeToInt(char *arg,int time){
 
 int main(int argc, char *argv[])
 {
-	setlocale(LC_ALL,"Russian");
 
 	Time *t1p,*t2p;
 
@@ -90,13 +89,13 @@ int main(int argc, char *argv[])
 		t1p=new Time(atoi(argv[1]),atoi(argv[2]),atoi(argv[3]));
 		t2p=new Time(atoi(argv[4]),atoi(argv[5]),atoi(argv[6]));
 
-		cout<<"Введены параметры:"<<endl<<t1p->GetStr()<<endl<<t2p->GetStr()<<endl;
+		cout<<"Parameters entered:"<<endl<<t1p->GetStr()<<endl<<t2p->GetStr()<<endl;
 		Time res=t1p->GetDiff(*t2p);
 
-		cout<<"Получена разница: "<<res.GetStr()<<endl;
+		cout<<"Difference: "<<res.GetStr()<<endl;
 	}
 	else
-		cout<<"Ошибка! Параметры не введены или их колличество не равно 6"<<endl;
+		cout<<"Error! Parameters are not entered or their number is not equal to 6"<<endl;
 
 	system("pause");
 
