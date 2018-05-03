@@ -15,7 +15,8 @@
 using namespace std;
 using namespace Children;
 
-bool find(int current,int wanted){
+template<typename T>
+bool find(T current,T wanted){
 	return current==wanted ? true : false;
 }
 
@@ -23,6 +24,15 @@ ChildrenShadow* findCurrentAge(vector<ChildrenShadow*> v,bool (*cond)(int,int),i
 	typedef vector<ChildrenShadow*>::iterator It;
 	for(It it=v.begin();it!=v.end();it++){
 		if(cond((*it)->getAge(),w))
+			return *it;
+	}
+	return NULL;
+}
+
+ChildrenShadow* findByName(vector<ChildrenShadow*> v,bool (*cond)(string,string),string w){
+	typedef vector<ChildrenShadow*>::iterator It;
+	for(It it=v.begin();it!=v.end();it++){
+		if(cond((*it)->getFirstName(),w))
 			return *it;
 	}
 	return NULL;
@@ -232,16 +242,21 @@ int main(int argc,char** argv)
 
 			vectCh.push_back(new ChildrenShadow());
 			vectCh.back()->setDateOfBirth(1,1,1990);
+			vectCh.back()->setFirstName("Sergey");
 
 			vectCh.push_back(new ChildrenShadow());
 			vectCh.back()->setDateOfBirth(1,1,2000);
+			vectCh.back()->setFirstName("Alex");
 
 			vectCh.push_back(new ChildrenShadow());
 			vectCh.back()->setDateOfBirth(1,1,1995);
+			vectCh.back()->setFirstName("Oleg");
 
 			ChildrenShadow* ch=findCurrentAge(vectCh,find,28);
-
 			cout<<ch->getAge()<<endl;
+
+			ch=findByName(vectCh,find,"Alex");
+			cout<<ch->getFirstName()<<endl;
 
 			break;
 			   }
