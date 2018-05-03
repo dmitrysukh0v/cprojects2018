@@ -38,10 +38,6 @@ public:
 	}
 };
 
-struct RESULT{
-	string s;
-	int limit;
-};
 
 string brutforce(char *pass,int limit,int &iterations,int deep=0,char *result=NULL,ASCII_TABLE *t=new ASCII_TABLE()){
 	if(iterations>limit){
@@ -89,11 +85,7 @@ string brutforce(char *pass,int limit,int &iterations,int deep=0,char *result=NU
 		result[deep-1]=ASCII_A;
 		string s(result);
 		return s;
-	}/*
-	if(strcmp(pass,result)==0){
-		string s(result);
-		return s;
-	}*/
+	}
 }
 
 int main(int argc, char* argv[])
@@ -111,7 +103,7 @@ int main(int argc, char* argv[])
 	int start=clock();
 	int end;
 	try{
-		ansver=brutforce(inputc,1000000,iterations);
+		ansver=brutforce(inputc,10000000,iterations);
 		end=clock();
 	}
 	catch(int err){

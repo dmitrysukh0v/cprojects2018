@@ -18,8 +18,8 @@ void PrintToBinary(int val){
 	}
 	for(int i=31;i>0;i--){
 		if(val){
-			bits[i]=(val & 1);
-			val=val>>1;
+			bits[i]=val & 1;
+			val>>=1;
 		}
 		else
 			bits[i]=0;
